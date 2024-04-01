@@ -1,0 +1,30 @@
+//Exercicio 7 - Controller Curso
+package br.com.fullstack.exerciciosM1S8.controller;
+
+import br.com.fullstack.exerciciosM1S8.model.Curso;
+import br.com.fullstack.exerciciosM1S8.service.CursoService;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("cursos")
+public class CursoController {
+
+    private final CursoService cursoService;
+
+    public CursoController(CursoService cursoService) {
+        this.cursoService = cursoService;
+    }
+
+    @GetMapping
+    public List<Curso> get(){
+        return cursoService.consultarTodos();
+    }
+
+    @PostMapping
+    public Curso post(@RequestBody Curso curso) throws Exception {
+        return cursoService.cadastrar(curso);
+    }
+
+}
