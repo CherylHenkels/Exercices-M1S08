@@ -12,7 +12,7 @@ import java.util.List;
 public class Curso {
 
     private static Integer proximoId = 1;
-    private static List<Curso> cursosCadastrados = new ArrayList<>();
+    @Getter private static List<Curso> cursosCadastrados = new ArrayList<>();
 
     private int id;
     @Setter private String nome;
@@ -22,7 +22,7 @@ public class Curso {
     private static Integer getProximoId() {
         return proximoId++;
     }
-    public static Curso controleID(Curso curso){
+    public static Curso inserir(Curso curso){
         cursosCadastrados.add(curso);
         curso.id = proximoId++;
         return curso;

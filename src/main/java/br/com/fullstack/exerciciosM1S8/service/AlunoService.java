@@ -1,3 +1,4 @@
+// Exercício 4 - Service aluno
 package br.com.fullstack.exerciciosM1S8.service;
 
 import br.com.fullstack.exerciciosM1S8.model.Aluno;
@@ -18,7 +19,8 @@ public class AlunoService {
     private boolean validar(Aluno aluno) throws Exception {
         if (aluno.getNome() == null || aluno.getNome().isBlank()){
             throw new Exception("Nome é obrigatório");
-        } else if (aluno.getDataNascimento() == null){
+        }
+        if (aluno.getDataNascimento() == null){
             throw new Exception("Data de nascimento é obrigatória");
         }
         return true;
