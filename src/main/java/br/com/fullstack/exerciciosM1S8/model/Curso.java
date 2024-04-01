@@ -14,10 +14,12 @@ public class Curso {
     private static Integer proximoId = 1;
     @Getter private static List<Curso> cursosCadastrados = new ArrayList<>();
 
-    private int id;
+    private Integer id;
     @Setter private String nome;
     @Setter private String descricao;
     @Setter private Integer cargaHoraria;
+    @Setter private List<Aluno> alunosMatriculados = new ArrayList<>();
+
 
     private static Integer getProximoId() {
         return proximoId++;
@@ -28,6 +30,18 @@ public class Curso {
         return curso;
     }
 
+    //Exercicio 8 - método para encontrar curso por ID
+    public static Curso buscarPorId(Integer id) throws Exception {
+        for (Curso curso : cursosCadastrados) {
+            if (curso.getId().equals(id)) {
+                return curso;
+            }
+        }
+        throw new Exception("Curso não encontrado");
+    }
 
+    public static void matricular(Curso curso, Aluno aluno){
+        curso.getAlunosMatriculados().add(aluno);
+    }
 
 }

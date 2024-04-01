@@ -30,5 +30,10 @@ public class AlunoService {
         return Aluno.getAlunosCadastrados();
     }
 
+    //Exercicio 8 - método para encontrar aluno por ID
+    public Aluno buscarPorId(Integer id) throws Exception {
+        return Aluno.buscarPorId(id);
+    }
+
 
 }

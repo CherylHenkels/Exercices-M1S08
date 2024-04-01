@@ -14,7 +14,7 @@ public class Aluno {
     private static Integer proximoId = 1;
     @Getter private static List<Aluno> alunosCadastrados = new ArrayList<>();
 
-    private int id;
+    private Integer id;
     @Setter private String nome;
     @Setter private LocalDate dataNascimento;
 
@@ -26,6 +26,16 @@ public class Aluno {
         alunosCadastrados.add(aluno);
         aluno.id = getProximoId();
         return aluno;
+    }
+
+    //Exercicio 8 - método para encontrar aluno por ID
+    public static Aluno buscarPorId(Integer id) throws Exception {
+        for (Aluno aluno : alunosCadastrados) {
+            if (aluno.getId().equals(id)) {
+                return aluno;
+            }
+        }
+        throw new Exception("Aluno não encontrado");
     }
 
 
