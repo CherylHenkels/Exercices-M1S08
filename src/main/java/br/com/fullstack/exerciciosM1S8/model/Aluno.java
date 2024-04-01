@@ -12,18 +12,21 @@ import java.util.List;
 public class Aluno {
 
     private static Integer proximoId = 1;
-    private static List<Aluno> alunosCadastrados = new ArrayList<>();
+    @Getter private static List<Aluno> alunosCadastrados = new ArrayList<>();
 
     private int id;
     @Setter private String nome;
     @Setter private LocalDate dataNascimento;
 
-    public static Aluno controleID(Aluno aluno){
-        alunosCadastrados.add(aluno);
-        aluno.id = proximoId++;
-        return aluno;
+    private static Integer getProximoId() {
+        return proximoId++;
     }
 
+    public static Aluno inserir(Aluno aluno) {
+        alunosCadastrados.add(aluno);
+        aluno.id = getProximoId();
+        return aluno;
+    }
 
 
 }

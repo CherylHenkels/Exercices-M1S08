@@ -18,8 +18,10 @@ public class Curso {
     @Setter private String nome;
     @Setter private String descricao;
     @Setter private Integer cargaHoraria;
-    
 
+    private static Integer getProximoId() {
+        return proximoId++;
+    }
     public static Curso controleID(Curso curso){
         cursosCadastrados.add(curso);
         curso.id = proximoId++;
